@@ -31,7 +31,7 @@ public class EmailController {
 	@RequestMapping(value = "/send", method = RequestMethod.POST )
     public ResponseEntity<String> sendEmail(@RequestBody Message message)  throws Exception{
         if(!emailHandlerService.sendEmail(message) ) {
-        	throw new Exception("Error");
+        	throw new Exception("Error in sending  email. All the email providers are failing");
         }
         return new ResponseEntity<String>("Email sent successfully", HttpStatus.OK);
     }
